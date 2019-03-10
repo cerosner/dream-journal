@@ -7,11 +7,10 @@ router.get('/', (req, res, next) => {
   .catch(next)
 })
 
-// // matches POST requests to /api/puppies/
-// router.post('/', function (req, res, next) { /* etc */});
-// // matches PUT requests to /api/puppies/:puppyId
-// router.put('/:puppyId', function (req, res, next) { /* etc */});
-// // matches DELETE requests to /api/puppies/:puppyId
-// router.delete('/:puppyId', function (req, res, next) { /* etc */});
+router.post('/', (req, res, next) => {
+  Entries.create(req.body)
+  .then(newEntry => res.json(newEntry))
+  .catch(next)
+})
 
 module.exports = router
