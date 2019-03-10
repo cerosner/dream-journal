@@ -1,34 +1,17 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
+import entryReducer from './entries'
+import {composeWithDevTools} from 'redux-devtools-extension'
 
-// import {composeWithDevTools} from 'redux-devtools-extension'
+const reducer = combineReducers({
+  entryReducer
+})
 
-// reducers
-// import entryReducer from './entry'
-// import keywordReducer from './keyword'
-
-function dummyReducer (state = {}, action) {
-  return state;
-}
-
-const store = createStore(
-  dummyReducer,
-  applyMiddleware(thunkMiddleware, createLogger())
+const middleware = composeWithDevTools(
+  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
+const store = createStore(reducer, middleware)
 
 export default store
-
-// const reducer = combineReducers({
-//   user,
-//   shapes,
-//   cart
-// })
-
-// const middleware = composeWithDevTools(
-//   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
-// )
-
-// export * from './user'
-// export * from './shapes'
-// export * from './cart'
+export * from './entries'
