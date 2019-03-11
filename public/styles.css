@@ -18,7 +18,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-div#app {
+#app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +27,8 @@ div#app {
 
 div#appdiv {
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
@@ -51,7 +53,51 @@ form {
   text-align: center;
 }
 
+#addentrydiv {
+  display: flex;
+  justify-content: center;
+}
+
 textarea {
   font-family: monospace;
   font-size: 1rem;
+}
+
+#listkeywords {
+  background-color: black;
+}
+
+#keywordinput {
+  font-family: monospace;
+  width: 40%;
+}
+
+button {
+  font-family: monospace;
+}
+
+#submitentry {
+  text-align: right;
+}
+
+#allentrydiv {
+  border-bottom: 1px solid white;
+}
+
+#entrydiv {
+  background-color: black;
+  border-top: 1px solid white;
+}
+
+.subdata {
+  color: bisque;
+  font-size: .75rem;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+#keywords {
+  padding-bottom: .5rem;
+  padding-top: 1rem;
 }
