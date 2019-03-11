@@ -6,10 +6,10 @@ import { getEntries } from '../store/entries'
 class AllEntries extends Component {
   render() {
     return (
-      <div>
+      <div id="allentrydiv">
         <h1>Analysis</h1>
         {this.props.allEntries.map((entry) => (
-        <div key={entry.id}>
+        <div key={entry.id} id="entrydiv">
           {entry.content}
           {/* <button className="btn" type="button">
             Edit

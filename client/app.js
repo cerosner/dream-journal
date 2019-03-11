@@ -6,7 +6,7 @@ import Routes from './routes'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div id="appdiv">
         <Navbar />
         <Routes />
       </div>

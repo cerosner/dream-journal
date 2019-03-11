@@ -33,7 +33,6 @@ export const getEntries = () => dispatch => {
 export const addEntry = entry => dispatch => {
   axios.post('/api/entries', entry)
   .then(res => {
-    console.log(res.data)
     dispatch(addedEntry(res.data))
   })
   .catch(console.error())

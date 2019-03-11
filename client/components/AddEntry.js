@@ -33,10 +33,11 @@ export class AddEntry extends Component {
     const { content } = this.state
 
     return (
-      <div className="form">
+      <div id="addentrydiv">
         <h1>Dream Journal</h1>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="content" placeholder="I dreamt..." value={content} onChange={this.handleChange} />
+        <textarea rows="15" cols="30" name="content" value={content} placeholder="i dreamt..." onChange={this.handleChange} />
+          <br />
           <input type="submit" name="Submit" />
         </form>
       </div>
