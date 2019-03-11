@@ -7,13 +7,18 @@ class AllEntries extends Component {
   render() {
     return (
       <div id="allentrydiv">
-        <h1>Analysis</h1>
+        <h1>Entries</h1>
         {this.props.allEntries.map((entry) => (
         <div key={entry.id} id="entrydiv">
+          <div className="subdata">
+            <strong>Date:</strong> {entry.createdAt}
+          </div>
+          <div className="entrycontent">
           {entry.content}
-          {/* <button className="btn" type="button">
-            Edit
-          </button> */}
+          </div>
+          <div className="subdata" id="keywords">
+            <strong>Keywords:</strong> {entry.keywords.words}
+          </div>
         </div>
         ))}
       </div>
