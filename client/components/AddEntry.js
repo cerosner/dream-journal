@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { addEntry } from '../store/entries';
 
 const initialState = {
-  content: ''
+  content: '',
+  keywords: []
 }
 
 export class AddEntry extends Component {
@@ -12,34 +13,60 @@ export class AddEntry extends Component {
 
     this.state = initialState
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEntryChange = this.handleEntryChange.bind(this)
+    this.handleKeywordChange = this.handleKeywordChange.bind(this)
+    this.handleEntrySubmit = this.handleEntrySubmit.bind(this)
+    this.addingKeywords = this.addingKeywords.bind(this)
   }
 
-  handleChange(event) {
+  handleEntryChange(event) {
     this.setState({
-      content: event.target.value,
+      content: event.target.value
     })
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleKeywordChange(event) {
+    this.setState({
+      keywords: event.target.value
+    })
+  }
 
-    this.props.addNewEntry(this.state);
+  addingKeywords(event) {
+    event.preventDefault()
+    
+    this.setState({
+      keywords: [...initialState.keywords, event.target.value]
+    })
+  }
+
+  handleEntrySubmit(event) {
+    event.preventDefault()
+
+    this.props.addNewEntry(this.state.content)
+    this.props.addNewKeyword(this.state.keywords)
+
     this.setState(initialState);
   }
 
   render() {
-    const { content } = this.state
+    const { content, keywords } = this.state
 
     return (
-      <div id="addentrydiv">
+      <div>
         <h1>Dream Journal</h1>
-        <form onSubmit={this.handleSubmit}>
-        <textarea rows="15" cols="30" name="content" value={content} placeholder="i dreamt..." onChange={this.handleChange} />
+        <div id="addentrydiv">
+          <textarea rows="15" cols="30" name="content" value={content} placeholder="i dreamt..." onChange={this.handleEntryChange} />
+        </div>
+
+          <div id="listkeywords">
+          Keywords: {keywords}
+          </div>
+          <input name="keywords" placeholder="type a keyword to attach to entry" id="keywordinput" /> <button type="submit">Add Keyword</button>
+
           <br />
-          <input type="submit" name="Submit" />
-        </form>
+        <div id="submitentry">
+          <button type="submit" onClick={() => this.handleEntrySubmit}>Add Entry</button>
+        </div>
       </div>
     )
   }
