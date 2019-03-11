@@ -2,8 +2,8 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Keyword = db.define('keyword', {
-  word: {
-    type: Sequelize.STRING
+  words: {
+    type: Sequelize.ARRAY(Sequelize.STRING)
   }
 })
 
