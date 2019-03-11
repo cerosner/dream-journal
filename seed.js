@@ -15,15 +15,15 @@ const entries = [
 
 const keywords = [
   {
-    word: 'bear',
+    words: ['bear', 'chase', 'black'],
     entryId: 1
   },
   {
-    word: 'teeth',
+    words: ['teeth', 'falling'],
     entryId: 2
   },
   {
-    word: 'fall',
+    words: ['fall'],
     entryId: 3
   }
 ]
